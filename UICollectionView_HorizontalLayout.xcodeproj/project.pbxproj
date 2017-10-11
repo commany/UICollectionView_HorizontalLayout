@@ -12,6 +12,9 @@
 		155B92211F8E257A004A99B8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155B921F1F8E257A004A99B8 /* Main.storyboard */; };
 		155B92231F8E257A004A99B8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 155B92221F8E257A004A99B8 /* Assets.xcassets */; };
 		155B92261F8E257A004A99B8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 155B92241F8E257A004A99B8 /* LaunchScreen.storyboard */; };
+		155B92301F8E26BD004A99B8 /* RestaurantImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B922F1F8E26BD004A99B8 /* RestaurantImages.swift */; };
+		155B92361F8E288B004A99B8 /* HorizontalLayoutCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B92351F8E288B004A99B8 /* HorizontalLayoutCollectionViewCell.swift */; };
+		155B92381F8E31A7004A99B8 /* HorizontalLayoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 155B92371F8E31A7004A99B8 /* HorizontalLayoutViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		155B92221F8E257A004A99B8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		155B92251F8E257A004A99B8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		155B92271F8E257A004A99B8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		155B922F1F8E26BD004A99B8 /* RestaurantImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantImages.swift; sourceTree = "<group>"; };
+		155B92351F8E288B004A99B8 /* HorizontalLayoutCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLayoutCollectionViewCell.swift; sourceTree = "<group>"; };
+		155B92371F8E31A7004A99B8 /* HorizontalLayoutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalLayoutViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,8 @@
 		155B921A1F8E257A004A99B8 /* UICollectionView_HorizontalLayout */ = {
 			isa = PBXGroup;
 			children = (
+				155B922E1F8E269B004A99B8 /* Model */,
+				155B922D1F8E2683004A99B8 /* Horizontal Layout 1. */,
 				155B921B1F8E257A004A99B8 /* AppDelegate.swift */,
 				155B921D1F8E257A004A99B8 /* ViewController.swift */,
 				155B921F1F8E257A004A99B8 /* Main.storyboard */,
@@ -62,6 +70,39 @@
 				155B92271F8E257A004A99B8 /* Info.plist */,
 			);
 			path = UICollectionView_HorizontalLayout;
+			sourceTree = "<group>";
+		};
+		155B922D1F8E2683004A99B8 /* Horizontal Layout 1. */ = {
+			isa = PBXGroup;
+			children = (
+				155B92311F8E26D7004A99B8 /* Controller */,
+				155B92321F8E2724004A99B8 /* View */,
+			);
+			path = "Horizontal Layout 1.";
+			sourceTree = "<group>";
+		};
+		155B922E1F8E269B004A99B8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				155B922F1F8E26BD004A99B8 /* RestaurantImages.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		155B92311F8E26D7004A99B8 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				155B92371F8E31A7004A99B8 /* HorizontalLayoutViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		155B92321F8E2724004A99B8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				155B92351F8E288B004A99B8 /* HorizontalLayoutCollectionViewCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -136,7 +177,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				155B92361F8E288B004A99B8 /* HorizontalLayoutCollectionViewCell.swift in Sources */,
+				155B92381F8E31A7004A99B8 /* HorizontalLayoutViewController.swift in Sources */,
 				155B921E1F8E257A004A99B8 /* ViewController.swift in Sources */,
+				155B92301F8E26BD004A99B8 /* RestaurantImages.swift in Sources */,
 				155B921C1F8E257A004A99B8 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
