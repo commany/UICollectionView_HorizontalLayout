@@ -33,32 +33,81 @@ var restaurantImages = [
 ]
 
 private let reuseIdentifier = "HorizontalCell"
+private var count: Int = 0
 
 class HorizontalLayoutViewController: UIViewController, UICollectionViewDataSource {
 
 	@IBOutlet weak var collectionView: UICollectionView!
+	@IBOutlet weak var scrollView: UIScrollView!
+	
+	/*
+	override func viewDidLayoutSubviews() {
+		super.viewDidLayoutSubviews()
+		
+		if let layout = collectionView.collectionViewLayout as? UICollectionViewFlowLayout {
+			let itemWidth = view.bounds.width / 3.0
+			let itemHeight = layout.itemSize.height
+			layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
+			layout.invalidateLayout()
+			
+			print("count : \(count)")
+			count += 1
+			print("Item Height : \(layout.itemSize.height)")
+		}
+	}
+	*/
 	
 	override func viewDidLoad() {
         super.viewDidLoad()
 
 		self.collectionView.dataSource = self
+		// self.collectionView.delegate = self
 		
 		self.collectionView.showsHorizontalScrollIndicator = true
 		self.collectionView.isPagingEnabled = false
 		
 		// MARK: Setting UICollectionView Layout
+		/*
 		let layout = UICollectionViewFlowLayout()
 		layout.scrollDirection = .horizontal
 		layout.sectionInset = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
-		layout.minimumInteritemSpacing = 5
+		layout.minimumInteritemSpacing = 0
+		layout.minimumLineSpacing = 5
+		
 		
 		let cellHeightSpace = layout.sectionInset.top + layout.sectionInset.bottom
-		layout.itemSize = CGSize(width: 200, height: self.collectionView.contentSize.height - cellHeightSpace)
+		layout.itemSize = CGSize(width: self.collectionView.bounds.width / 3, height: self.collectionView.contentSize.height - cellHeightSpace)
 		
-		debugPrint(self.collectionView.contentSize.height - cellHeightSpace)
+		debugPrint("ContentSize.width : " + self.collectionView.contentSize.width.description)
+		debugPrint("ContentSize.height : " + self.collectionView.contentSize.height.description)
+		*/
 		
-		self.collectionView.setCollectionViewLayout(layout, animated: true)
+		// self.collectionView.setCollectionViewLayout(layout, animated: true)
+		// self.collectionView.collectionViewLayout = layout
+		
+		// Function Call : Horizontal Scroll in UIScrollView
+		setupScrollView()
     }
+	
+	func setupScrollView() {
+		let imageWidth = self.scrollView.frame.width
+		let imageHeight = self.scrollView.frame.height
+		let restaurantImageCount = 5 // restaurantImages.count - 1
+		
+		for i in 0...restaurantImageCount {
+			let image: UIImageView = UIImageView()
+			image.frame = CGRect(x: imageWidth * CGFloat(i), y: 0, width: imageWidth, height: imageHeight)
+			image.image = UIImage(named: restaurantImages[i].restaurantImage)
+			image.sizeToFit()
+			
+			self.scrollView.addSubview(image)
+		}
+		
+		// Get scrollView contentSize width
+		self.scrollView.contentSize.width = self.scrollView.frame.width * CGFloat(restaurantImageCount)
+		
+		self.scrollView.isPagingEnabled = true
+	}
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -84,26 +133,35 @@ class HorizontalLayoutViewController: UIViewController, UICollectionViewDataSour
 	}
 }
 
-/****
+
 // MARK: UICollectionViewDelegateFlowLayout
-extension HorizontalLayoutViewController: UICollectionViewDelegateFlowLayout {
+
+extension HorizontalLayoutViewController:  UICollectionViewDelegateFlowLayout {
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-		return UIEdgeInsets(top: 50, left: 5, bottom: 50, right: 5)
+		return UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
 	}
 	
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-		return 3
+		return 5
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-		return 3
+		return 5
 	}
 	
+	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-		return CGSize(width: 200, height: 150)
+		
+		if indexPath.row == 0 {
+			return CGSize(width: UIScreen.main.bounds.width, height: 180)
+		} else {
+			return CGSize(width: 180, height: 180)
+		}
 	}
 }
-***/
+
 
 
 
