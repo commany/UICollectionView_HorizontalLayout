@@ -115,11 +115,12 @@ class HorizontalLayoutViewController: UIViewController, UICollectionViewDataSour
     }
 	
 	// MARK: UICollectionViewDataSource
-	
+	// 섹션 수 계산
 	func numberOfSections(in collectionView: UICollectionView) -> Int {
 		return 1
 	}
 	
+	// 셀 수 계산
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		return restaurantImages.count
 	}
@@ -132,6 +133,8 @@ class HorizontalLayoutViewController: UIViewController, UICollectionViewDataSour
 		return cell
 	}
 }
+
+
 
 
 // MARK: UICollectionViewDelegateFlowLayout
